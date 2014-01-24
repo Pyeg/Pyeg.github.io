@@ -16,6 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="http://getbootstrap.com/dist/css/docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -45,6 +46,14 @@
         <p><a class="btn btn-lg btn-success" href="https://github.com/Pyeg/pyeg.github.io" role="button">Fork on Github</a></p>
       </div>
 
+      <div class="row marketing">
+        <div class="col-12" id="ideas">
+          <h3>Ideas Suggested By The Community :</h3>
+          <br />
+
+        </div>
+      </div>
+
       <div class="footer">
         <p>&copy; PyEG Egypt Python User Group 2014</p>
       </div>
@@ -55,5 +64,27 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
+    <script>
+    $.ajax({
+        url: "https://api.github.com/repos/Pyeg/Ideas/issues",
+        dataType: "json",
+        success: function (returndata)
+        {
+            console.log(returndata, 'Return data');
+            for (var i = 0; i < returndata.length; i++) {
+                console.log(returndata[i].title);
+                $("#ideas").append('<a href="' + returndata[i].html_url + '"><h4>"' + returndata[i].title + '"</h4></a>');
+                // $("#ideas").append("");
+                // $("#ideas").append('</a>');
+                $("#ideas").append("<p>" + returndata[i].body + "</p>");
+
+          //       <h4>Subheading</h4>
+          // <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+            }
+            // $("#result").html(returndata);
+        }
+    });
+    </script>
   </body>
 </html>
