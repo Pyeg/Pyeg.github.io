@@ -7,5 +7,6 @@
 - [Bkam?](http://www.bkam.com) A large part of Bkam infrastructure is written in python
 
 ## Some of the projects, or for scripting
+- [Link Development](http://www.linkdev.com/solutions/open-source-solutions/)
 - [Silverkey](http://www.silverkeytech.com/)
 - [App Fruits](http://www.appfruits.me/) _Not sure about this one_
